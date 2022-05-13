@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import { sizes } from '../constants'
 
 export default function MobileMenu({ open }) {
   return (
@@ -53,4 +54,8 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: ${sizes.sm}) {
+    display: none;
+  }
 `
