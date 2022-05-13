@@ -6,13 +6,21 @@ import { sizes } from '../constants'
 export default function Header() {
   return (
     <Container>
-      <img src={logo} />
-      <p>Menu</p>
+      <Navbar>
+        <img src={logo} />
+        <p>Menu</p>
+      </Navbar>
     </Container>
   )
 }
 
 const Container = styled.div`
+  height: 80%;
+  background-image: url('../../images/mobile/image-header.jpg');
+  background-position: bottom;
+`
+
+const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 2rem;
