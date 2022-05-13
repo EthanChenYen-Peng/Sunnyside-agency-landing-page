@@ -1,2 +1,1 @@
-export  const sizes = { sm: "768px" }
-
+export const sizes = { sm: '768px' }
