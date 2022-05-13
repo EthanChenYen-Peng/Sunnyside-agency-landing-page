@@ -25,6 +25,12 @@ const Container = styled.div`
   height: 80%;
   background-image: url('../../images/mobile/image-header.jpg');
   background-position: bottom;
+
+  @media (min-width: ${sizes.sm}) {
+    background-image: url('../../images/desktop/image-header.jpg');
+    background-position: 50% 70%;
+    height: 90%;
+  }
 `
 
 const MenuToggle = styled.button`
