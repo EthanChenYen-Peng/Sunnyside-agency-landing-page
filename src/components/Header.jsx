@@ -18,7 +18,7 @@ const Container = styled.div`
   padding-top: 2rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  background-color: red;
+  position: sticky;
 
   @media (min-width: ${sizes.sm}) {
   }
