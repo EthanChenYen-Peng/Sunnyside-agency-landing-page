@@ -26,7 +26,9 @@ const GlobalStyle = createGlobalStyle`
     --dark-desaturated-cyan: hsl(167, 40%, 24%);
     --dark-blue: hsl(198, 62%, 26%);
     --dark-moderate-cyan: hsl(168, 34%, 41%);
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+    --dark-grayish-blue: hsl(232, 10%, 55%);
+  }
+
 `
 
 export default GlobalStyle
