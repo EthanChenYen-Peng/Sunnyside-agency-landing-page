@@ -14,13 +14,11 @@ function Image({ mobileSrc, desktopSrc }) {
 
 function ContentSection({ title, content, accentColor }) {
   return (
-    <ContentContainer>
-      <InnerContainer>
-        <ContentHeader>{title}</ContentHeader>
-        <Content>{content}</Content>
-        <LearnMoreBtn accentColor={accentColor}> Learn More </LearnMoreBtn>
-      </InnerContainer>
-    </ContentContainer>
+    <InnerContainer>
+      <ContentHeader>{title}</ContentHeader>
+      <Content>{content}</Content>
+      <LearnMoreBtn accentColor={accentColor}> Learn More </LearnMoreBtn>
+    </InnerContainer>
   )
 }
 
@@ -47,32 +45,42 @@ const content = {
 }
 export default function IntroSectionBanner() {
   return (
-    <>
-      <Container>
+    <Container>
+      <Image
+        mobileSrc={content.transform.mobileImg}
+        desktopSrc={content.transform.desktopImg}
+      />
+      <TransformSection>
         <ContentSection
           title={content.transform.title}
           content={content.transform.content}
         />
-        <Image
-          mobileSrc={content.transform.mobileImg}
-          desktopSrc={content.transform.desktopImg}
-        />
-      </Container>
-      <Container reverse={true}>
+      </TransformSection>
+
+      <Image
+        mobileSrc={content.standout.mobileImg}
+        desktopSrc={content.standout.desktopImg}
+      />
+      <StandoutSection>
         <ContentSection
           title={content.standout.title}
           content={content.standout.content}
           accentColor={content.standout.accentColor}
         />
-        <Image
-          mobileSrc={content.standout.mobileImg}
-          desktopSrc={content.standout.desktopImg}
-        />
-      </Container>
-    </>
+      </StandoutSection>
+    </Container>
   )
 }
 
+const TransformSection = styled.div`
+  flex: 1;
+  @media (min-width: ${sizes.sm}) {
+    grid-area: one;
+  }
+`
+const StandoutSection = styled.div`
+  flex: 1;
+`
 const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -104,15 +112,18 @@ const ImageContainer = styled.div`
 `
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-areas:
+    'one'
+    'two'
+    'three'
+    'four';
   @media (min-width: ${sizes.sm}) {
-    flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
+    grid-template-areas:
+      'one two'
+      'three four';
   }
-`
-
-const ContentContainer = styled.div`
-  flex: 1;
 `
 
 const ContentHeader = styled.h2`
